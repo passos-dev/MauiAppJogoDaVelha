@@ -5,8 +5,8 @@
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-            <GradientStop Color="DarkBlue" Offset="0.3" />
-            <GradientStop Color="Black" Offset="1.1" />
+            <GradientStop Color="Magenta" Offset="0.3" />
+            <GradientStop Color="Blue" Offset="1.1" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
@@ -16,8 +16,8 @@
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="TextColor" Value="White" />
             <Setter Property="FontSize" Value="80" />
-            <Setter Property="BorderWidth" Value="3" />
-            <Setter Property="BorderColor" Value="DarkSeaGreen" />
+            <Setter Property="BorderWidth" Value="1" />
+            <Setter Property="BorderColor" Value="White" />
         </Style>
     </ContentPage.Resources>
 
@@ -25,13 +25,12 @@
           ColumnDefinitions="*, *, *"
           ColumnSpacing="0" RowSpacing="0" Margin="50">
 
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
-               Text="JOGO DA VELHA" 
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+               Source="logovelha.png" 
+               HeightRequest="120"
                HorizontalOptions="Center" 
-               VerticalOptions="Center"
-               TextColor="White" 
-               FontSize="50" 
-               FontAttributes="Bold" />
+               VerticalOptions="Center" 
+               Margin="0,-50,0,10"/>
 
         <Button x:Name="btn10" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" />
         <Button x:Name="btn11" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" />
