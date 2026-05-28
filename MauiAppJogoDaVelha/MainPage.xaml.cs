@@ -5,7 +5,7 @@ namespace MauiAppJogoDaVelha
     public partial class MainPage : ContentPage
     {
         string vez = "X";
-        //Contador de jogadas para sabermos se deu velha (máximo de 9 cliques)
+        // Contador de jogadas para verificar empate (máximo de 9 cliques)
         int jogadas = 0;
 
         public MainPage()
@@ -30,9 +30,10 @@ namespace MauiAppJogoDaVelha
                 vez = "X";
             }
 
-            //Toda vez que um botão for clicado, somamos 1 ao total de jogadas
+            // Incrementa o contador a cada clique no tabuleiro
             jogadas++;
 
+            // Estrutura de decisão que define o fim da rodada (Vitória ou Velha)
             if (VerificarVencedor("X"))
             {
                 DisplayAlert("Parabéns!", "O X ganhou!", "OK");
@@ -43,34 +44,32 @@ namespace MauiAppJogoDaVelha
                 DisplayAlert("Parabéns!", "O O ganhou!", "OK");
                 Zerar();
             }
+            // ONDE FOI CODIFICADO PARA DAR VELHA: Se não houve vencedor e atingiu 9 cliques
             else if (jogadas == 9)
             {
-                //9 cliques e nenhum "if" acima deu verdadeiro, deu Velha!
                 DisplayAlert("Deu Velha!", "Ninguém ganhou essa rodada.", "OK");
                 Zerar();
             }
 
         } // Fecha método do clique
 
-        /* Juiz do Jogo checa as 8 combinações possíveis.
-           Retorna 'true' se o jogador enviado (X ou O) preencheu uma trinca.*/
+        // ONDE FOI FEITA A VERIFICAÇÃO SE O X OU O GANHOU EM TODAS AS POSSIBILIDADES
         bool VerificarVencedor(string jogador)
         {
-            //Verificação das Linhas Horizontais
+            //Verificação das 3 Linhas Horizontais
             if (btn10.Text == jogador && btn11.Text == jogador && btn12.Text == jogador) return true;
             if (btn20.Text == jogador && btn21.Text == jogador && btn22.Text == jogador) return true;
             if (btn30.Text == jogador && btn31.Text == jogador && btn32.Text == jogador) return true;
 
-            //Verificação das Linhas Verticais
+            //Verificação das 3 Linhas Verticais
             if (btn10.Text == jogador && btn20.Text == jogador && btn30.Text == jogador) return true;
             if (btn11.Text == jogador && btn21.Text == jogador && btn31.Text == jogador) return true;
             if (btn12.Text == jogador && btn22.Text == jogador && btn32.Text == jogador) return true;
 
-            //Verificação das Diagonais
+            //Verificação das 2 Diagonais
             if (btn10.Text == jogador && btn21.Text == jogador && btn32.Text == jogador) return true;
             if (btn12.Text == jogador && btn21.Text == jogador && btn30.Text == jogador) return true;
 
-            //Se o código chegou até aqui, significa que esse jogador não fechou nenhuma trinca
             return false;
         }
 
