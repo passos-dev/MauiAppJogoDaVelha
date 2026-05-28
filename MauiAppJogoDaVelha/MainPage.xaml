@@ -15,7 +15,7 @@
             <Setter Property="BackgroundColor" Value="Transparent" />
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="TextColor" Value="White" />
-            <Setter Property="FontSize" Value="80" />
+            <Setter Property="FontSize" Value="50" />
             <Setter Property="BorderWidth" Value="1" />
             <Setter Property="BorderColor" Value="White" />
         </Style>
@@ -26,7 +26,7 @@
           ColumnSpacing="0" RowSpacing="0" Margin="50">
 
         <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
-               Source="logovelha.png" 
+               Source="logodavelha.png" 
                HeightRequest="120"
                HorizontalOptions="Center" 
                VerticalOptions="Center" 
